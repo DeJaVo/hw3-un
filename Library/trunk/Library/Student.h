@@ -2,6 +2,7 @@
 #define _STUDENT_H_
 
 #include <string>
+#include <iostream>
 using namespace std;
 
 class Student
@@ -17,6 +18,7 @@ class Student
 			void print() const;
 			long getId() const {return _SID;}
 			void NullifySumFines(){_Sum_Fines=0;}
+			double getSumFine() const {return _Sum_Fines;}
 };
 
 
