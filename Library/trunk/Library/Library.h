@@ -7,6 +7,8 @@
 #include <time.h>
 #include <algorithm>
 #include "BaseBook.h"
+#include <typeinfo>
+
 
 using namespace std;
 
@@ -17,7 +19,7 @@ class Library
 			list<BaseBook*> _BL;
 			time_t _Date;
 	public:
-			Library(time_t date=NULL);
+			Library(time_t date);
 			void addTitle(BaseBook* B);
 			void addStudent(const Student& S);
 			void borrowTitle(const long& SID, const long& CID);

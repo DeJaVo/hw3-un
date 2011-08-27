@@ -5,6 +5,7 @@
 #include <string>
 
 
+
 class Book:public BaseBook
 {
 	protected:

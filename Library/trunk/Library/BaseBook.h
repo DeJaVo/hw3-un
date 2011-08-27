@@ -16,7 +16,8 @@ class BaseBook
 	public:
 		BaseBook(long CID=0);
 		long getCatalogId() const {return _CatalogId;} 
-		int get_borrow_days() const {return _borrow_days;} 
+		int get_borrow_days() const {return _borrow_days;}
+		bool operator==(const BaseBook& B);
 
 };
 
