@@ -18,6 +18,24 @@
     <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\BaseBook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Book.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Library.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\ReservedBook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Journal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Library.h">
@@ -33,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Student.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\BaseBook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

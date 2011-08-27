@@ -74,9 +74,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\BaseBook.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Book.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Journal.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Library.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\main.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\ReservedBook.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Student.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\BaseBook.h" />
     <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Book.h" />
     <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Journal.h" />
     <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Library.h" />
