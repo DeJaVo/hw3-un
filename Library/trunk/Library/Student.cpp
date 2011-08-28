@@ -23,3 +23,9 @@ void Student::push(const Borrow& bo)
 {
 	_BorrowL.push_back(bo);
 }
+
+void Student::erase(list<Borrow>::iterator it)
+{
+	_BorrowL.erase(it);
+
+}

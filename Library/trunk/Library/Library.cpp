@@ -46,6 +46,13 @@ void Library::borrowTitle(const long& SID, const long& CID)
 
 void Library::returnTitle(const long& SID, const long& CID)
 {
+	stringstream ss;
+	ss<<CID;
+	list<Student>::iterator  it_s; //iterator for student list
+	list<BaseBook*>::iterator it_b; // iterator for basebook* list
+	it_s=find(_SL.begin(),_SL.end(),SID);
+	it_b=find(_BL.begin(),_BL.end(),ss);
+	it_s->erase()
 
 }
 void Library::clearFines(const long& SID)

@@ -24,6 +24,7 @@ class Student
 			list<Borrow>::iterator beginIterator(){return _BorrowL.begin();}
 			list<Borrow>::iterator endIterator(){return _BorrowL.end();}
 			void push(const Borrow& bo);
+			void erase(list<Borrow>::iterator it);
 };
 
 
