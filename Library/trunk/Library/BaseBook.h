@@ -19,6 +19,7 @@ class BaseBook
 		int get_borrow_days() const {return _borrow_days;}
 		bool operator==(const BaseBook& B);
 		bool getIsBorrowed()const {return _isborrow;}
+		void setIsBorrowed(){_isborrow=!(_isborrow);}
 
 };
 
