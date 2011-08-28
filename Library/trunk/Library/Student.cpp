@@ -29,3 +29,10 @@ void Student::erase(list<Borrow>::iterator it)
 	_BorrowL.erase(it);
 
 }
+
+list<Borrow>::iterator Student::findBorrow(long CID)
+{
+	list<Borrow>::iterator it;
+	it=find(_BorrowL.begin(),_BorrowL.end(),CID);
+	return it;
+}

@@ -5,6 +5,8 @@
 #include <list>
 #include "Borrow.h"
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
 
 class Student
@@ -25,6 +27,7 @@ class Student
 			list<Borrow>::iterator endIterator(){return _BorrowL.end();}
 			void push(const Borrow& bo);
 			void erase(list<Borrow>::iterator it);
+			list<Borrow>::iterator findBorrow(long CID);
 };
 
 

@@ -11,23 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\BaseBook.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Book.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Borrow.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Journal.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Library.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\ReservedBook.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Student.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\BaseBook.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Book.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Borrow.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Journal.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Library.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\main.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\ReservedBook.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Student.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\BaseBook.h" />
-    <ClInclude Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Book.h" />
-    <ClInclude Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Borrow.h" />
-    <ClInclude Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Journal.h" />
-    <ClInclude Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Library.h" />
-    <ClInclude Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\ReservedBook.h" />
-    <ClInclude Include="..\..\..\..\..\..\שנה א%27\semester summer\OOP\תרגולים\HW3\Library\Student.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\BaseBook.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Book.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Borrow.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Journal.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Library.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\ReservedBook.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\שנה א%27\סמסטר קיץ\OOP\HW\HW3\Library\Library\Student.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BC5A37AB-3539-4BC6-8285-8C60EEC0487C}</ProjectGuid>
