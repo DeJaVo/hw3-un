@@ -28,12 +28,12 @@ void Library::borrowTitle(const long& SID, const long& CID)
 	if(find(it_s->beginIterator(),it_s->endIterator(),CID)==it_s->endIterator())
 	{
 		if(typeid(*it_b).name()=="Book")
-			Borrow btemp(Book,CID);
+			Borrow btemp(_Book,CID);
 		else if(typeid(*it_b).name()=="ReservedBook")
-			Borrow btemp(ReservedBook,CID);
+			Borrow btemp(_ReservedBook,CID);
 		else 
-			Borrow btemp(Journal,CID);
-		it_s->push(btemp);
+			Borrow btemp(_Journal,CID);
+		it_s->push();
 	}
 }
 
