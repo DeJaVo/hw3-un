@@ -13,7 +13,7 @@ class Borrow
 			long _CID;
 			BookType _type;
 	public:
-			Borrow():_type(None),_CID(0),_StartDate(NULL){};
+			Borrow():_type(None),_CID(0),_StartDate(time(NULL)){}
 			Borrow(BookType type, long CID):_type(type), _CID(CID){_StartDate=time(NULL);}
 			void setBookType(BookType type){_type=type;}
 			int getBookType() const {return _type;}
