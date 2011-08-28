@@ -1,6 +1,7 @@
 #include "Library.h"
 #include "Book.h"
 #include <sstream>
+
 Library::Library(time_t date)
 {
 	_Date=date;
@@ -22,7 +23,7 @@ void Library::addTitle(BaseBook* B)
 
 void Library::borrowTitle(const long& SID, const long& CID)
 {
-	stringstream ss;
+	stringstream ss;//not good
 	ss<<CID;
 	list<Student>::iterator  it_s; //iterator for student list
 	list<BaseBook*>::iterator it_b; // iterator for basebook* list
@@ -46,15 +47,18 @@ void Library::borrowTitle(const long& SID, const long& CID)
 
 void Library::returnTitle(const long& SID, const long& CID)
 {
-	stringstream ss;
+	stringstream ss;//not good
 	ss<<CID;
 	list<Student>::iterator  it_s; //iterator for student list
 	list<BaseBook*>::iterator it_b; // iterator for basebook* list
+	list<Borrow>::iterator it_e;// iterator for Borrow
 	it_s=find(_SL.begin(),_SL.end(),SID);
 	it_b=find(_BL.begin(),_BL.end(),ss);
-	it_s->erase()
-
+	it_e=it_s->findBorrow(CID);//calling find borrow to find the to be deleted borrow
+	it_s->erase(it_e);//deletes the borrow from the list
+	(*it_b)->setIsBorrowed();//return it to not borrowed
 }
+
 void Library::clearFines(const long& SID)
 {
 	list<Student>::iterator  it;
