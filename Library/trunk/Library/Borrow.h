@@ -14,11 +14,13 @@ class Borrow
 			BookType _type;
 	public:
 			Borrow():_type(None),_CID(0),_StartDate(time(NULL)){}
+			Borrow(long CID):_type(None),_CID( CID),_StartDate(time(NULL)){}
 			Borrow(BookType type, long CID):_type(type), _CID(CID){_StartDate=time(NULL);}
 			void setBookType(BookType type){_type=type;}
 			int getBookType() const {return _type;}
 			time_t getStartDate() const {return _StartDate;}
 			void setCID(long CID){_CID=CID;}
+			friend bool operator==(const Borrow& a,const Borrow& b);
 			int Late();
 };
 

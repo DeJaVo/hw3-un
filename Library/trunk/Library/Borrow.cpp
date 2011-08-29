@@ -28,4 +28,8 @@ int Borrow::Late()
 	}
 }
 
+bool operator==(const Borrow& a,const Borrow& b)
+{
+	return a._CID==b._CID?true:false;
+}
 
