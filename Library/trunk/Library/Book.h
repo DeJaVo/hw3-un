@@ -13,7 +13,6 @@ class Book:public BaseBook
 			string _AuthorName;
 	public:
 			Book(long id=0,string BN="",string AN="");
-		/*	virtual bool operator==(const Book& B);*/
 };
 
 

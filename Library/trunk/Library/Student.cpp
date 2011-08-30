@@ -42,6 +42,7 @@ void Student::endOfDay()
 	list<Borrow>::iterator it;
 	for(it=_BorrowL.begin();it!=_BorrowL.end();++it)
 	{
+			_Sum_Fines=0;
 			_Sum_Fines+=10*(it->Late());
 	}
 	if(_Sum_Fines>0)
