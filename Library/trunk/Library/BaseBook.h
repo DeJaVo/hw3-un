@@ -20,7 +20,6 @@ class BaseBook
 		virtual bool operator==(const BaseBook& B);
 		bool getIsBorrowed()const {return _isborrow;}
 		void setIsBorrowed(){_isborrow=!(_isborrow);}
-		BaseBook operator*(BaseBook* BB){return *BB;}
 
 };
 
