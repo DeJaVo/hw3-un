@@ -15,7 +15,6 @@ using namespace std;
 class Library
 {
 	private:
-			long elem;
 			list<Student> _SL;
 			list<BaseBook*> _BL;
 			time_t _Date;

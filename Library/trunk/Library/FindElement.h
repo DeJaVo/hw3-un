@@ -7,7 +7,7 @@ class FindElement
 {
 long elem;
 public:
-explicit FindElement(long Elem) : elem(Elem) {}
+explicit FindElement(long Elem=0) : elem(Elem) {}
 bool operator() (BaseBook* b) const
 {
 	return (b->getCatalogId() == elem);
