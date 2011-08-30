@@ -20,7 +20,7 @@ class Borrow
 			int getBookType() const {return _type;}
 			time_t getStartDate() const {return _StartDate;}
 			void setCID(long CID){_CID=CID;}
-			friend bool operator==(const Borrow& a,const Borrow& b);
+			bool operator==(const Borrow& b);
 			int Late();
 };
 

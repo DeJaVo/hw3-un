@@ -28,6 +28,7 @@ class Student
 			void push(const Borrow& bo);
 			void erase(list<Borrow>::iterator it);
 			list<Borrow>::iterator findBorrow(long CID);
+			void endOfDay();
 };
 
 

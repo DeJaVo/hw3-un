@@ -5,3 +5,7 @@ Journal::Journal(long CID,string JN,int journal_num):BaseBook(CID),_journal_name
 	_borrow_days=7;
 }
 
+//bool Journal::operator==(const Journal& J)
+//{
+//	return _CatalogId==J.getCatalogId()?true:false;
+//}
