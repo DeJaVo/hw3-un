@@ -15,6 +15,7 @@ using namespace std;
 class Library
 {
 	private:
+			long elem;
 			list<Student> _SL;
 			list<BaseBook*> _BL;
 			time_t _Date;
@@ -26,7 +27,6 @@ class Library
 			void returnTitle(const long& SID, const long& CID);
 			void clearFines(const long& SID);
 			void endDay();
-			
 };
 
 

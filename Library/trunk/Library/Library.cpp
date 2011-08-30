@@ -1,5 +1,6 @@
 #include "Library.h"
 #include "Book.h"
+#include "FindElement.h"
 
 Library::Library(time_t date)
 {
@@ -25,15 +26,15 @@ void Library::borrowTitle(const long& SID, const long& CID)
 	list<Student>::iterator  it_s; //iterator for student list
 	list<BaseBook*>::iterator it_b; // iterator for basebook* list
 	it_s=find(_SL.begin(),_SL.end(),SID);
-	it_b=find((_BL.begin()),(_BL.end()),CID);
+	it_b= find_if(_BL.begin(), _BL.end(), FindElement(CID));
     if((*it_b)->getIsBorrowed()) //checks if it_b is already borrowed
 	{
 		// need to handle!
 	}
 	Borrow btemp;// create new borrow
-	if(typeid(*it_b).name()=="Book")
+	if(typeid(**(it_b)).name()==string("class Book"))
 		btemp.setBookType(_Book);
-	else if(typeid(*it_b).name()=="ReservedBook")
+	else if(typeid(**it_b).name()==string("class ReservedBook"))
 		btemp.setBookType(_ReservedBook);
 	else
 		btemp.setBookType(_Journal);
@@ -48,7 +49,7 @@ void Library::returnTitle(const long& SID, const long& CID)
 	list<BaseBook*>::iterator it_b; // iterator for basebook* list
 	list<Borrow>::iterator it_e;// iterator for Borrow
 	it_s=find(_SL.begin(),_SL.end(),SID);
-	it_b=find(_BL.begin(),_BL.end(),CID);
+	it_b= find_if(_BL.begin(), _BL.end(), FindElement(CID));
 	it_e=it_s->findBorrow(CID);//calling find borrow to find the to be deleted borrow
 	it_s->erase(it_e);//deletes the borrow from the list
 	(*it_b)->setIsBorrowed();//return it to not borrowed
@@ -68,6 +69,6 @@ void Library::endDay()
 	{
 		it_s->endOfDay();
 	}
-	_Date++;
+	_Date++;//update date
 
 }

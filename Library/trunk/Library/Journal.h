@@ -12,6 +12,7 @@ class Journal:public BaseBook
 		Journal(long CID=0,string JN="",int journal_num=0);
 		/*bool operator==(const Journal& J);*/
 
+
 };
 
 #endif
