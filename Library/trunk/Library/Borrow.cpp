@@ -4,7 +4,7 @@ int Borrow::Late()
 {
 	time_t _CurrentDate=time(NULL);//check if null -exception 
 	double diff=difftime(_CurrentDate,getStartDate());
-	double days= (diff/86400);//Calculate days
+	double days= (diff/3600);//Calculate days problem in calculating dates
 	days=ceil(days);//Round up
 	switch(_type)
 	{

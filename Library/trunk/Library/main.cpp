@@ -160,21 +160,21 @@ int main(){
 	library.endDay();
 	library.returnTitle(s2.getId(), r2.getCatalogId());
 	//check that you cannot return a title that is not borrowed
-	try{
-		library.returnTitle(s2.getId(), r2.getCatalogId());
-	}
-	catch(exception& e){
-		cout << e.what() << endl;
-	}
-	cout << "student " << s2.getId() << " cannot return a book that is not borrowed (catalogid " << r2.getCatalogId() << ") **********"<<endl;
-	
-	//check that you cannot return a title that is not borrowed by the student
-	try{
-		library.returnTitle(s2.getId(), b1.getCatalogId());
-	}
-	catch(exception& e){
-		cout << e.what() << endl;
-	}
+	//try{
+	//	library.returnTitle(s2.getId(), r2.getCatalogId());
+	//}
+	//catch(exception& e){
+	//	cout << e.what() << endl;
+	//}
+	//cout << "student " << s2.getId() << " cannot return a book that is not borrowed (catalogid " << r2.getCatalogId() << ") **********"<<endl;
+	//
+	////check that you cannot return a title that is not borrowed by the student
+	//try{
+	//	library.returnTitle(s2.getId(), b1.getCatalogId());
+	//}
+	//catch(exception& e){
+	//	cout << e.what() << endl;
+	//}
 	cout << "student " << s2.getId() << " cannot return a book that is not borrowed (catalogid " << b1.getCatalogId() << ") **********"<<endl;
 
 	library.endDay();
