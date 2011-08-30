@@ -17,9 +17,10 @@ class BaseBook
 		BaseBook(long CID=0);
 		long getCatalogId() const {return _CatalogId;} 
 		int get_borrow_days() const {return _borrow_days;}
-		bool operator==(const BaseBook& B);
+		virtual bool operator==(const BaseBook& B);
 		bool getIsBorrowed()const {return _isborrow;}
 		void setIsBorrowed(){_isborrow=!(_isborrow);}
+		BaseBook operator*(BaseBook* BB){return *BB;}
 
 };
 

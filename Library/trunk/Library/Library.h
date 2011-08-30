@@ -26,6 +26,7 @@ class Library
 			void returnTitle(const long& SID, const long& CID);
 			void clearFines(const long& SID);
 			void endDay();
+			
 };
 
 
