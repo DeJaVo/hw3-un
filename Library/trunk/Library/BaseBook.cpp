@@ -10,3 +10,4 @@ bool BaseBook::operator==(const BaseBook& B)
 {
 	return (_CatalogId==B.getCatalogId()?true:false);
 }
+
