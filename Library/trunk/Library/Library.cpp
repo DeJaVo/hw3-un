@@ -69,6 +69,6 @@ void Library::endDay()
 	{
 		it_s->endOfDay();
 	}
-	_Date++;//update date - not good
+	_Date+=86400;//update date to next date
 
 }
