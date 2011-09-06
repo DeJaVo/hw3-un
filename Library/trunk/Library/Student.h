@@ -6,6 +6,7 @@
 #include "Borrow.h"
 #include <iostream>
 #include <algorithm>
+#include "FindElement.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ class Student
 			long _SID;
 			string _Name;
 			double _Sum_Fines;
-			list<Borrow> _BorrowL;
+			list<Borrow*> _BorrowL;
 	public:
 			Student(long SID=0, string Name="");
 			void print() const;
@@ -23,11 +24,11 @@ class Student
 			double getSumFine() const {return _Sum_Fines;}
 			void NullifySumFines() {_Sum_Fines=0;} 
 			bool operator==(const Student& ST);
-			list<Borrow>::iterator beginIterator(){return _BorrowL.begin();}
-			list<Borrow>::iterator endIterator(){return _BorrowL.end();}
-			void push(const Borrow& bo);
-			void erase(list<Borrow>::iterator it);
-			list<Borrow>::iterator findBorrow(long CID);
+			list<Borrow*>::iterator beginIterator(){return _BorrowL.begin();}
+			list<Borrow*>::iterator endIterator(){return _BorrowL.end();}
+			void push(Borrow* bo);
+			void erase(list<Borrow*>::iterator it);
+			list<Borrow*>::iterator findBorrow(long CID);
 			void endOfDay();
 };
 

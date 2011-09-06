@@ -12,6 +12,10 @@ bool operator() (BaseBook* b) const
 {
 	return (b->getCatalogId() == elem);
 }
+bool operator() (Borrow* b) const
+{
+	return (b->getCID() == elem);
+}
 };
 
 #endif

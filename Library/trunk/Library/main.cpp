@@ -27,7 +27,7 @@ int main(){
 	}catch(exception& e){
 		cout<<e.what()<<endl;
 	}
-	cout<<"library cannot add title with the same catalogid twice!  (id=2)**********"<<endl;
+	cout<<"library cannot add title with the same catalogid twice (id=2)! **********"<<endl;
 
 	Journal j1(3,"my Journal",123);
 	Journal jerr(3,"my duplicate journal",5);
@@ -44,7 +44,7 @@ int main(){
 	}catch(exception& e){
 		cout<<e.what()<<endl;
 	}
-	cout<<"library cannot add title with the same catalogid twice (id=5)! **********"<<endl;
+	cout<<"library cannot add title with the same catalogid twice (id=3)! **********"<<endl;
 
 	Book b2(11,"my Book","Lolo");
     library.addTitle(&b2);
@@ -100,21 +100,21 @@ int main(){
 	}catch(exception& e){
 		cout<<e.what()<<endl;
 	}
-	cout<<"student " << s1.getId() << " already borrowed catalogid " << b1.getCatalogId() << " **********"<<endl;
+	cout<<"student 1111 already borrowed catalogid 1 **********"<<endl;
 	try
 	{
 		library.borrowTitle(s1.getId(), r1.getCatalogId());
 	}catch(exception& e){
 		cout<<e.what()<<endl;
 	}
-	cout<<"student " << s1.getId() << " already borrowed catalogid " << r1.getCatalogId() << " **********"<<endl;
+	cout<<"student 1111 already borrowed catalogid 2 **********"<<endl;
 	try
 	{
 		library.borrowTitle(s1.getId(), j1.getCatalogId());
 	}catch(exception& e){
 		cout<<e.what()<<endl;
 	}
-	cout<<"student " << s1.getId() << " already borrowed catalogid " << b1.getCatalogId() << " **********"<<endl;
+	cout<<"student 1111 already borrowed catalogid 3 **********"<<endl;
 
 	//check that you cannot borrow a book that is already borrowed
 	try
@@ -123,21 +123,21 @@ int main(){
 	}catch(exception& e){
 		cout<<e.what()<<endl;
 	}
-	cout<<"book with catalogid " << b1.getCatalogId() << " is already borrowed! **********"<<endl;
+	cout<<"book with catalogid 1 is already borrowed! **********"<<endl;
 	try
 	{
 		library.borrowTitle(s2.getId(), r1.getCatalogId());
 	}catch(exception& e){
 		cout<<e.what()<<endl;
 	}
-	cout<<"reserved book with catalogid " << r1.getCatalogId() << " is already borrowed! **********"<<endl;
+	cout<<"reserved book with catalogid 2 is already borrowed! **********"<<endl;
 	try
 	{
 		library.borrowTitle(s2.getId(), j1.getCatalogId());
 	}catch(exception& e){
 		cout<<e.what()<<endl;
 	}
-	cout<<"journal with catalogid " << j1.getCatalogId() << " is already borrowed! **********"<<endl;
+	cout<<"journal with catalogid 3 is already borrowed! **********"<<endl;
 
 	library.borrowTitle(s2.getId(), b2.getCatalogId());
 	library.borrowTitle(s2.getId(), r2.getCatalogId());
@@ -149,63 +149,77 @@ int main(){
 
 	library.endDay();
 	library.endDay();
+	library.endDay();
 	//here there should be an error message about the reserved books
-	cout<<"Student " << s1.getId() << " has a fine of 10 NIS *********" << endl;
+	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
 
 	library.returnTitle(s1.getId(), r1.getCatalogId());
+	library.clearFines(s1.getId());
+
 	//here there should be no error messages
-	library.endDay();
 	library.endDay();
 	library.borrowTitle(s2.getId(), r2.getCatalogId());
 	library.endDay();
 	library.returnTitle(s2.getId(), r2.getCatalogId());
 	//check that you cannot return a title that is not borrowed
-	//try{
-	//	library.returnTitle(s2.getId(), r2.getCatalogId());
-	//}
-	//catch(exception& e){
-	//	cout << e.what() << endl;
-	//}
-	//cout << "student " << s2.getId() << " cannot return a book that is not borrowed (catalogid " << r2.getCatalogId() << ") **********"<<endl;
-	//
-	////check that you cannot return a title that is not borrowed by the student
-	//try{
-	//	library.returnTitle(s2.getId(), b1.getCatalogId());
-	//}
-	//catch(exception& e){
-	//	cout << e.what() << endl;
-	//}
-	cout << "student " << s2.getId() << " cannot return a book that is not borrowed (catalogid " << b1.getCatalogId() << ") **********"<<endl;
+	try{
+		library.returnTitle(s2.getId(), r2.getCatalogId());
+	}
+	catch(exception& e){
+		cout << e.what() << endl;
+	}
+	cout << "student 2222 cannot return a book that is not borrowed (catalogid 12) **********"<<endl;
+	
+	//check that you cannot return a title that is not borrowed by the student
+	try{
+		library.returnTitle(s2.getId(), b1.getCatalogId());
+	}
+	catch(exception& e){
+		cout << e.what() << endl;
+	}
+	cout << "student 2222 cannot return a book that is not borrowed (catalogid 1) **********"<<endl;
 
 	library.endDay();
+	library.endDay();
 	//here there should be an error message about the journals books
-	cout<<"Student " << s1.getId() << " has a fine of 20 NIS *********" << endl;
-	cout<<"Student " << s2.getId() << " has a fine of 10 NIS *********" << endl;
+	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
+	cout<<"Student 2222 has a fine of 10 NIS *********" << endl;
 	library.clearFines(s1.getId());
 
 	library.endDay();
-	cout<<"Student " << s1.getId() << " has a fine of 10 NIS *********" << endl;
-	cout<<"Student " << s2.getId() << " has a fine of 20 NIS *********" << endl;
+	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
+	cout<<"Student 2222 has a fine of 20 NIS *********" << endl;
 	library.endDay();
-	cout<<"Student " << s1.getId() << " has a fine of 20 NIS *********" << endl;
-	cout<<"Student " << s2.getId() << " has a fine of 30 NIS *********" << endl;
+	cout<<"Student 1111 has a fine of 20 NIS *********" << endl;
+	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
 	
 	library.returnTitle(s1.getId(), j1.getCatalogId());
 	library.returnTitle(s2.getId(), j2.getCatalogId());
 
 	library.endDay();
+	cout<<"Student 1111 has a fine of 20 NIS *********" << endl;
+	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
+
 	library.endDay();
+	cout<<"Student 1111 has a fine of 20 NIS *********" << endl;
+	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
+	library.clearFines(s1.getId());
+
 	library.endDay();
+	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
+
 	library.endDay();
+	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
+
 	library.endDay();
 	//here there should be an error message about the books
-	cout<<"Student " << s1.getId() << " has a fine of 30 NIS *********" << endl;
-	cout<<"Student " << s2.getId() << " has a fine of 40 NIS *********" << endl;
+	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
+	cout<<"Student 2222 has a fine of 40 NIS *********" << endl;
 	library.returnTitle(s1.getId(), b1.getCatalogId());
 	library.returnTitle(s2.getId(), b2.getCatalogId());
 	library.endDay();
-	cout<<"Student " << s1.getId() << " has a fine of 30 NIS *********" << endl;
-	cout<<"Student " << s2.getId() << " has a fine of 40 NIS *********" << endl;
+	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
+	cout<<"Student 2222 has a fine of 40 NIS *********" << endl;
 	library.clearFines(s1.getId());
 	library.clearFines(s2.getId());
 	library.endDay();
