@@ -8,7 +8,12 @@
 #include <algorithm>
 #include "BaseBook.h"
 #include <typeinfo>
-
+#include "Book.h"
+#include "Journal.h"
+#include "ReservedBook.h"
+#include "FindElement.h"
+#include "Exceptions.h"
+#include "Borrow.h"
 
 using namespace std;
 
@@ -22,7 +27,7 @@ class Library
 			Library(time_t date);
 			void addTitle(BaseBook* B);
 			void addStudent(const Student& S);
-			void borrowTitle(const long& SID, const long& CID);
+			void borrowTitle(const long& SID,const long& CID);
 			void returnTitle(const long& SID, const long& CID);
 			void clearFines(const long& SID);
 			void endDay();
