@@ -28,7 +28,7 @@ const char* existing_student_exception::what() const throw()
 	return _msg;
 }
 
- book_is_borrowed::book_is_borrowed(long CID, BookType type)
+ book_is_borrowed::book_is_borrowed(long CID, int type)
  {
 	 _CID=CID;
 	 _type=type;
@@ -36,11 +36,20 @@ const char* existing_student_exception::what() const throw()
 	switch(_type)
 	{
 	case 3://ReservedBook
+		{
 		ss<<"book with catalogid "<<_CID<<" is already borrowed! ";
+		break;
+		}
 	case 7://Journal
+		{
 		ss<<"book with catalogid "<<_CID<<" is already borrowed! ";
+		break;
+		}
 	case 14://Book
+		{
 		ss<<"book with catalogid "<<_CID<<" is already borrowed! ";
+		break;
+		}
 	}
 	
 	_msg = new char [ss.str().length() + 1];
