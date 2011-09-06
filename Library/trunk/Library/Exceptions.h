@@ -32,9 +32,9 @@ class book_is_borrowed: public exception{
 protected:
 	long _CID;
 	char* _msg;
-	BookType _type;
+	int _type;
 public:
-	book_is_borrowed(long CID,BookType type);
+	book_is_borrowed(long CID,int type);
 	virtual const char* what() const throw();
 	virtual ~book_is_borrowed(){ delete[] _msg;}
 };

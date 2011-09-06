@@ -39,9 +39,7 @@ void Library::borrowTitle(const long& SID,const long& CID)
 	if(it_e!=it_s->endIterator())
 		throw(already_borrowed(it_s->getId(),(*it_e)->getCID()));
     if((*it_b)->getIsBorrowed()) //checks if it_b is already borrowed
-	{
-		throw(book_is_borrowed((*it_b)->getCatalogId(),(*it_e)->getBookType()));
-	}
+		throw(book_is_borrowed((*it_b)->getCatalogId(),(*it_b)->get_borrow_days()));
 	Borrow* btemp=new Borrow();// create new borrow
 	if((*it_b)->get_borrow_days()==14)
 		(btemp)->setBookType(_Book);
@@ -53,7 +51,6 @@ void Library::borrowTitle(const long& SID,const long& CID)
 	it_s->push(btemp);
 	(*it_b)->setIsBorrowed();
 }
-
 void Library::returnTitle(const long& SID, const long& CID)
 {
 	list<Student>::iterator  it_s; //iterator for student list
