@@ -37,14 +37,33 @@ list<Borrow*>::iterator Student::findBorrow(long CID)
 	return it;
 }
 
-void Student::endOfDay()
+void Student::endOfDay(time_t _Current_date)
 {
 	list<Borrow*>::iterator it;
+	_Sum_Fines=0;
 	for(it=_BorrowL.begin();it!=_BorrowL.end();++it)
 	{
-			_Sum_Fines=0;
-			_Sum_Fines+=10*((*it)->Late());
+			_Sum_Fines+=10*((*it)->Late(_Current_date));
 	}
 	if(_Sum_Fines>0)
 		print();
+}
+
+void Student::NullifySumFines(time_t date)
+{
+	if(getSumFine()>0)
+	{
+		int num=0;
+		list<Borrow*>::iterator it_b;
+		for(it_b=beginIterator();it_b!=endIterator();it_b++)
+		{
+			num=(*it_b)->Late(date); //check if sending the library date is better
+			if(num>0)
+			{
+				(*it_b)->setStartDate(num*86400);
+			}
+		}
+		_Sum_Fines=0;
+	}
+
 }

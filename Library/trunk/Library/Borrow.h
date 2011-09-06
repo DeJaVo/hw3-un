@@ -22,7 +22,8 @@ class Borrow
 			time_t getStartDate() const {return _StartDate;}
 			void setCID(long CID){_CID=CID;}
 			bool operator==(const Borrow& b);
-			int Late();
+			int Late(time_t _Current_date);
+			void setStartDate(time_t addition){_StartDate+=addition;}
 };
 
 #endif

@@ -35,7 +35,7 @@ void Library::borrowTitle(const long& SID,const long& CID)
 	list<Borrow*>::iterator it_e; //iterator for Borrow* list
 	it_s=find(_SL.begin(),_SL.end(),SID);
 	it_b= find_if(_BL.begin(), _BL.end(),FindElement(CID));
-	it_e=find_if(it_s->beginIterator(),it_s->endIterator(),FindElement(CID));//search if CID already borrowed
+	it_e=find_if(it_s->beginIterator(),it_s->endIterator(),FindElement(CID));//search if student already borrowed CID
 	if(it_e!=it_s->endIterator())
 		throw(already_borrowed(it_s->getId(),(*it_e)->getCID()));
     if((*it_b)->getIsBorrowed()) //checks if it_b is already borrowed
@@ -58,25 +58,31 @@ void Library::returnTitle(const long& SID, const long& CID)
 	list<Borrow*>::iterator it_e;// iterator for Borrow
 	it_s=find(_SL.begin(),_SL.end(),SID);
 	it_b= find_if(_BL.begin(), _BL.end(), FindElement(CID));
+	if((*it_b)->getIsBorrowed())
+	{
 	it_e=it_s->findBorrow(CID);//calling find borrow to find the to be deleted borrow
+	if(it_e==it_s->endIterator())//if title wasnt borrowed by the student
+		throw(StudentDidNotBorrowThisTitle(SID,CID));
 	it_s->erase(it_e);//deletes the borrow from the list
 	(*it_b)->setIsBorrowed();//return it to not borrowed
+	}
+	else
+		throw(TitleIsNotBorrowed(SID,CID));
 }
 
 void Library::clearFines(const long& SID)
 {
 	list<Student>::iterator  it;
 	it=find(_SL.begin(),_SL.end(),SID);
-	it->NullifySumFines();
+	it->NullifySumFines(_Date);
 }
 
 void Library::endDay()
 {
 	list<Student>::iterator  it_s;
+	_Date+=86400;//update date to next date
 	for(it_s=_SL.begin();it_s!=_SL.end();++it_s)
 	{
-		it_s->endOfDay();
+		it_s->endOfDay(_Date);
 	}
-	_Date+=86400;//update date to next date
-
 }
