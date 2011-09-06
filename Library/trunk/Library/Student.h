@@ -22,14 +22,14 @@ class Student
 			void print() const;
 			long getId() const {return _SID;}
 			double getSumFine() const {return _Sum_Fines;}
-			void NullifySumFines() {_Sum_Fines=0;} 
+			void NullifySumFines(time_t date);
 			bool operator==(const Student& ST);
 			list<Borrow*>::iterator beginIterator(){return _BorrowL.begin();}
 			list<Borrow*>::iterator endIterator(){return _BorrowL.end();}
 			void push(Borrow* bo);
 			void erase(list<Borrow*>::iterator it);
 			list<Borrow*>::iterator findBorrow(long CID);
-			void endOfDay();
+			void endOfDay(time_t _Current_date);
 };
 
 
