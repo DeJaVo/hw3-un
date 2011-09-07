@@ -1,6 +1,6 @@
 #include "BaseBook.h"
 
-BaseBook::BaseBook(const long CID):_CatalogId(CID)
+BaseBook::BaseBook(const long CID):_CatalogId(CID)//c'tor
 {
 	_borrow_days=0;
 	_borrow_date=NULL;

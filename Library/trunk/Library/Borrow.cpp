@@ -1,5 +1,6 @@
 #include "Borrow.h"
 
+//checking if borrow is late
 int Borrow::Late(time_t _Current_date)
 { 
 	double diff=difftime(_Current_date,getStartDate());

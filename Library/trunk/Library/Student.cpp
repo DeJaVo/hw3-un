@@ -1,6 +1,6 @@
 #include "Student.h"
 
-Student::Student(long SID, string Name)
+Student::Student(long SID, string Name)//c'tor+defualt c'tor
 {
 	_Sum_Fines=0;
 	_Name=Name;
@@ -19,17 +19,20 @@ bool Student::operator==(const Student& ST)
 	return (_SID==ST.getId()?true:false);
 }
 
+//overloaded push function in order to add a borrow
 void Student::push(Borrow* bo)
 {
 	_BorrowL.push_back(bo);
 }
 
+//deleting a borrow from student's borrow list
 void Student::erase(list<Borrow*>::iterator it)
 {
 	_BorrowL.erase(it);
 
 }
 
+//overloaded find function
 list<Borrow*>::iterator Student::findBorrow(long CID)
 {
 	list<Borrow*>::iterator it;
@@ -37,18 +40,21 @@ list<Borrow*>::iterator Student::findBorrow(long CID)
 	return it;
 }
 
+//enday help function
 void Student::endOfDay(time_t _Current_date)
 {
 	list<Borrow*>::iterator it;
-	_Sum_Fines=0;
+	
 	for(it=_BorrowL.begin();it!=_BorrowL.end();++it)
 	{
+		_Sum_Fines=0;
 			_Sum_Fines+=10*((*it)->Late(_Current_date));
 	}
 	if(_Sum_Fines>0)
 		print();
 }
 
+//calculate date differences and nullfy the student's fines
 void Student::NullifySumFines(time_t date)
 {
 	if(getSumFine()>0)
