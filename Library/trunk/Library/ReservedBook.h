@@ -6,7 +6,7 @@
 class ReservedBook:public Book
 {
 	public:
-		ReservedBook(long CID=0,string BN="",string AN="");
+		ReservedBook(long CID=0,string BN="",string AN="");//c'tor+defualt c'tor
 };
 
 #endif

@@ -9,10 +9,7 @@ class Journal:public BaseBook
 			string _journal_name;
 			int _journal_num;
 	public:
-		Journal(long CID=0,string JN="",int journal_num=0);
-		/*bool operator==(const Journal& J);*/
-
-
+		Journal(long CID=0,string JN="",int journal_num=0);//c'tor
 };
 
 #endif

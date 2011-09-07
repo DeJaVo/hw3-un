@@ -14,12 +14,13 @@ class BaseBook
 		time_t _borrow_date;
 		bool _isborrow;
 	public:
-		BaseBook(long CID=0);
+		BaseBook(long CID=0);//c'tor
 		long getCatalogId() const {return _CatalogId;} 
 		int get_borrow_days() const {return _borrow_days;}
 		bool operator==(const long CID);
 		bool getIsBorrowed()const {return _isborrow;}
 		void setIsBorrowed(){_isborrow=!(_isborrow);}
+		void setBorrowDate(time_t date){_borrow_date=date;}
 
 };
 

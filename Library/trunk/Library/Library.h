@@ -24,13 +24,13 @@ class Library
 			list<BaseBook*> _BL;
 			time_t _Date;
 	public:
-			Library(time_t date);
-			void addTitle(BaseBook* B);
-			void addStudent(const Student& S);
-			void borrowTitle(const long& SID,const long& CID);
-			void returnTitle(const long& SID, const long& CID);
-			void clearFines(const long& SID);
-			void endDay();
+			Library(time_t date);//c'tor
+			void addTitle(BaseBook* B);//adding a title to library's book list
+			void addStudent(const Student& S);//adding a student to library's student list
+			void borrowTitle(const long& SID,const long& CID);//borrwing a title
+			void returnTitle(const long& SID, const long& CID);//returning a tilte
+			void clearFines(const long& SID);//clearing fines
+			void endDay();// updating to next and printing students with fines
 };
 
 

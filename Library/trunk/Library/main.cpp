@@ -144,12 +144,12 @@ int main(){
 	library.borrowTitle(s2.getId(), j2.getCatalogId());
 	
 	//check return date is checked on endDay for all types of titles
-	library.endDay();
+	library.endDay();//1
 	library.returnTitle(s2.getId(), r2.getCatalogId());
 
-	library.endDay();
-	library.endDay();
-	library.endDay();
+	library.endDay();//2
+	library.endDay();//3
+	library.endDay();//4
 	//here there should be an error message about the reserved books
 	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
 
@@ -157,9 +157,9 @@ int main(){
 	library.clearFines(s1.getId());
 
 	//here there should be no error messages
-	library.endDay();
+	library.endDay();//5
 	library.borrowTitle(s2.getId(), r2.getCatalogId());
-	library.endDay();
+	library.endDay();//6
 	library.returnTitle(s2.getId(), r2.getCatalogId());
 	//check that you cannot return a title that is not borrowed
 	try{
@@ -179,50 +179,50 @@ int main(){
 	}
 	cout << "student 2222 cannot return a book that is not borrowed (catalogid 1) **********"<<endl;
 
-	library.endDay();
-	library.endDay();
+	library.endDay();//7
+	library.endDay();//8
 	//here there should be an error message about the journals books
 	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
 	cout<<"Student 2222 has a fine of 10 NIS *********" << endl;
 	library.clearFines(s1.getId());
 
-	library.endDay();
+	library.endDay();//9
 	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
 	cout<<"Student 2222 has a fine of 20 NIS *********" << endl;
-	library.endDay();
+	library.endDay();//10
 	cout<<"Student 1111 has a fine of 20 NIS *********" << endl;
 	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
 	
 	library.returnTitle(s1.getId(), j1.getCatalogId());
 	library.returnTitle(s2.getId(), j2.getCatalogId());
 
-	library.endDay();
+	library.endDay();//11
 	cout<<"Student 1111 has a fine of 20 NIS *********" << endl;
 	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
 
-	library.endDay();
+	library.endDay();//12
 	cout<<"Student 1111 has a fine of 20 NIS *********" << endl;
 	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
 	library.clearFines(s1.getId());
 
-	library.endDay();
+	library.endDay();//13
 	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
 
-	library.endDay();
+	library.endDay();//14
 	cout<<"Student 2222 has a fine of 30 NIS *********" << endl;
 
-	library.endDay();
+	library.endDay();//15
 	//here there should be an error message about the books
 	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
 	cout<<"Student 2222 has a fine of 40 NIS *********" << endl;
 	library.returnTitle(s1.getId(), b1.getCatalogId());
 	library.returnTitle(s2.getId(), b2.getCatalogId());
-	library.endDay();
+	library.endDay();//16
 	cout<<"Student 1111 has a fine of 10 NIS *********" << endl;
 	cout<<"Student 2222 has a fine of 40 NIS *********" << endl;
 	library.clearFines(s1.getId());
 	library.clearFines(s2.getId());
-	library.endDay();
+	library.endDay();//17
 
 	return 0;
 }

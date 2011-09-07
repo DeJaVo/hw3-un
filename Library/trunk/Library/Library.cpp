@@ -1,14 +1,14 @@
 #include "Library.h"
 
 
-Library::Library(time_t date)
+Library::Library(time_t date)//c'tor
 {
 	_Date=date;
 	_SL=list<Student>();
 	_BL=list<BaseBook*>();
 }
 
-
+//adding a student to library's student list
 void Library::addStudent(const Student& S)
 {
 	list<Student>::iterator it_s; //iterator for student list
@@ -18,7 +18,7 @@ void Library::addStudent(const Student& S)
 	_SL.push_back(S);
 }
 
-
+//adding a title to library's book list
 void Library::addTitle(BaseBook* B)
 {
 	list<BaseBook*>::iterator it_b; // iterator for basebook* list
@@ -28,6 +28,7 @@ void Library::addTitle(BaseBook* B)
 	_BL.push_back(B);
 }
 
+//borrwing a title
 void Library::borrowTitle(const long& SID,const long& CID)
 {
 	list<Student>::iterator  it_s; //iterator for student list
@@ -40,7 +41,8 @@ void Library::borrowTitle(const long& SID,const long& CID)
 		throw(already_borrowed(it_s->getId(),(*it_e)->getCID()));
     if((*it_b)->getIsBorrowed()) //checks if it_b is already borrowed
 		throw(book_is_borrowed((*it_b)->getCatalogId(),(*it_b)->get_borrow_days()));
-	Borrow* btemp=new Borrow();// create new borrow
+	Borrow* btemp=new Borrow(_Date);// create new borrow
+	(*it_b)->setBorrowDate(_Date);//setting book borrow date
 	if((*it_b)->get_borrow_days()==14)
 		(btemp)->setBookType(_Book);
 	else if((*it_b)->get_borrow_days()==3)
@@ -51,6 +53,8 @@ void Library::borrowTitle(const long& SID,const long& CID)
 	it_s->push(btemp);
 	(*it_b)->setIsBorrowed();
 }
+
+//returning a tilte
 void Library::returnTitle(const long& SID, const long& CID)
 {
 	list<Student>::iterator  it_s; //iterator for student list
@@ -70,18 +74,20 @@ void Library::returnTitle(const long& SID, const long& CID)
 		throw(TitleIsNotBorrowed(SID,CID));
 }
 
+//clearing fines
 void Library::clearFines(const long& SID)
 {
 	list<Student>::iterator  it;
-	it=find(_SL.begin(),_SL.end(),SID);
+	it=find(_SL.begin(),_SL.end(),SID);//find the student by its ID
 	it->NullifySumFines(_Date);
 }
 
+// updating to next and printing students with fines
 void Library::endDay()
 {
 	list<Student>::iterator  it_s;
 	_Date+=86400;//update date to next date
-	for(it_s=_SL.begin();it_s!=_SL.end();++it_s)
+	for(it_s=_SL.begin();it_s!=_SL.end();++it_s)//running over students' list
 	{
 		it_s->endOfDay(_Date);
 	}
