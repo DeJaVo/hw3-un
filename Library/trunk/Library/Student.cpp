@@ -44,11 +44,12 @@ list<Borrow*>::iterator Student::findBorrow(long CID)
 void Student::endOfDay(time_t _Current_date)
 {
 	list<Borrow*>::iterator it;
-	
 	for(it=_BorrowL.begin();it!=_BorrowL.end();++it)
 	{
-		_Sum_Fines=0;
-			_Sum_Fines+=10*((*it)->Late(_Current_date));
+		double current_fine=0;
+		current_fine=10*((*it)->Late(_Current_date));//calculate sum of fines from the borrow time to current time
+		if(current_fine>=10)//in case the fine is greater than one day fine
+			_Sum_Fines+=10;//previous fines should grow by one day fine
 	}
 	if(_Sum_Fines>0)
 		print();
