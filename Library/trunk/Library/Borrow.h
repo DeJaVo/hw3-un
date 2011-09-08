@@ -16,8 +16,8 @@ class Borrow
 			Borrow():_type(None),_CID(0),_StartDate(time(NULL)){}//defualt c'tor
 			Borrow(time_t date):_type(None),_CID(0),_StartDate(date){}//c'tor
 			Borrow(long CID):_type(None),_CID( CID),_StartDate(time(NULL)){}//c'tor
-			long getCID() const {return _CID;}
 			Borrow(BookType type, long CID):_type(type), _CID(CID){_StartDate=time(NULL);}//c'tor
+			long getCID() const {return _CID;}
 			void setBookType(BookType type){_type=type;}
 			int getBookType() const {return _type;}
 			time_t getStartDate() const {return _StartDate;}

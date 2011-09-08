@@ -8,7 +8,7 @@ Student::Student(long SID, string Name)//c'tor+defualt c'tor
 	_BorrowL=list<Borrow*>();
 }
 
-
+//printing the student's fines
 void Student::print() const
 {
 	cout<<"Student " << getId() << " has a fine of "<<getSumFine() <<" NIS "<<endl;
@@ -29,7 +29,6 @@ void Student::push(Borrow* bo)
 void Student::erase(list<Borrow*>::iterator it)
 {
 	_BorrowL.erase(it);
-
 }
 
 //overloaded find function
@@ -58,7 +57,7 @@ void Student::endOfDay(time_t _Current_date)
 //calculate date differences and nullfy the student's fines
 void Student::NullifySumFines(time_t date)
 {
-	if(getSumFine()>0)
+	if(getSumFine()>0)//if fine student has fine
 	{
 		int num=0;
 		list<Borrow*>::iterator it_b;

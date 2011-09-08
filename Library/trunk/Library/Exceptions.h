@@ -80,5 +80,11 @@ public:
 	virtual ~StudentDidNotBorrowThisTitle(){ delete[] _msg;}
 };
 
+//empty list 
+class Empty:public exception
+{
+public:
+	virtual const char* what() const throw(){return "The list is empty";}
+};
 
 #endif
