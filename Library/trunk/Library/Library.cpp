@@ -78,6 +78,7 @@ void Library::returnTitle(const long& SID, const long& CID)
 
 		it_s->erase(it_e);//deletes the borrow from the list
 		(*it_b)->setIsBorrowed();//return it to not borrowed
+		(*it_b)->setBorrowDate(0);//nullifying date
 	}
 	else
 		throw(TitleIsNotBorrowed(SID,CID));
