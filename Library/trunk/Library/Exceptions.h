@@ -88,3 +88,24 @@ public:
 };
 
 #endif
+
+//trying to find a student who doesn't exist in the student list (according to the ID)
+class no_Student_With_This_ID:public exception{
+	protected:
+		long _SID;
+		char* _msg;
+	public:
+	no_Student_With_This_ID(long SID);
+	virtual const char* what() const throw();
+	virtual ~no_Student_With_This_ID(){delete[] _msg;}
+};
+
+// trying to find a title that does not exost in the books list (according to the catalog ID)
+class no_Title_With_This_Catalog_ID:public exception{
+	protected:
+		long _CID;
+		char* _msg;
+	public:
+		no_Title_With_This_Catalog_ID(long CID)
+		virtual const char* what() const throw();
+};
