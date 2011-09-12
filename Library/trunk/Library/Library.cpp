@@ -39,7 +39,11 @@ void Library::borrowTitle(const long& SID,const long& CID)
 	if(_SL.empty())//check if Student list is empty
 		throw (Empty());
 	it_s=find(_SL.begin(),_SL.end(),SID);
+	if(it_s==_SL.end())
+		throw(no_Student_With_This_ID(SID));// need to implemet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	it_b= find_if(_BL.begin(), _BL.end(),FindElement(CID));
+	if(it_b==_BL.end())
+		throw(no_Title_With_This_Catalog_ID(CID));// need to implemet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	it_e=find_if(it_s->beginIterator(),it_s->endIterator(),FindElement(CID));//search if student already borrowed CID
 	if(it_e!=it_s->endIterator())//in case student already borrowed this title
 		throw(already_borrowed(it_s->getId(),(*it_e)->getCID()));
@@ -69,7 +73,11 @@ void Library::returnTitle(const long& SID, const long& CID)
 	if(_SL.empty())//check if list is empty
 		throw (Empty());
 	it_s=find(_SL.begin(),_SL.end(),SID);
+	if(it_s==_SL.end())
+		throw(no_Student_With_This_ID(SID));// need to implemet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	it_b= find_if(_BL.begin(), _BL.end(), FindElement(CID));
+	if(it_b==_BL.end())
+		throw(no_Title_With_This_Catalog_ID(CID));// need to implemet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	if((*it_b)->getIsBorrowed())//if the title is borrowed
 	{
 		it_e=it_s->findBorrow(CID);//calling find borrow to find the to be deleted borrow

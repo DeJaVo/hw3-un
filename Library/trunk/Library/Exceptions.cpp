@@ -106,3 +106,17 @@ const char* StudentDidNotBorrowThisTitle::what() const throw()
 {
 	return _msg;
 }
+
+no_Student_With_This_ID::no_Student_With_This_ID(long SID)
+{
+	_SID=SID;
+	stringstream ss;
+	ss<<"student with ID number:"<<_SID<<"does not exit in the library."<<endl;
+	_msg=new char[ss.str().length()+1];
+	strcpy(_msg,ss.str().c_str());
+}
+
+const char* no_Student_With_This_ID::what() const throw()
+{
+	return _msg;
+}
