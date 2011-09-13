@@ -48,15 +48,10 @@ void Library::borrowTitle(const long& SID,const long& CID)
 	if(it_e!=it_s->endIterator())//in case student already borrowed this title
 		throw(already_borrowed(it_s->getId(),(*it_e)->getCID(),(*it_b)->getType()));
     if((*it_b)->getIsBorrowed()) //in case book is borrowed by someone 
-		throw(book_is_borrowed((*it_b)->getCatalogId(),(*it_b)->get_borrow_days()));
+		throw(book_is_borrowed((*it_b)->getCatalogId(),(*it_b)->getType()));
 	Borrow* btemp=new Borrow(_Date);// create a new borrow
 	(*it_b)->setBorrowDate(_Date);//setting book borrow date
-	if((*it_b)->get_borrow_days()==14)//Book
-		(btemp)->setBookType(_Book);
-	else if((*it_b)->get_borrow_days()==3)//ReservedBook
-		(btemp)->setBookType(_ReservedBook);
-	else
-		(btemp)->setBookType(_Journal);//Journal
+	(btemp)->setBookType((*it_b)->getType());
 	(btemp)->setCID((*it_b)->getCatalogId());
 	it_s->push(btemp);//add to student borrow list
 	(*it_b)->setIsBorrowed();
@@ -82,14 +77,14 @@ void Library::returnTitle(const long& SID, const long& CID)
 	{
 		it_e=it_s->findBorrow(CID);//calling find borrow to find the to be deleted borrow
 		if(it_e==it_s->endIterator())//if title wasnt borrowed by the student
-			throw(StudentDidNotBorrowThisTitle(SID,CID));
+			throw(StudentDidNotBorrowThisTitle(SID,CID,(*it_b)->getType()));
 
 		it_s->erase(it_e);//deletes the borrow from the list
 		(*it_b)->setIsBorrowed();//return it to not borrowed
 		(*it_b)->setBorrowDate(0);//nullifying date
 	}
 	else
-		throw(TitleIsNotBorrowed(SID,CID));
+		throw(TitleIsNotBorrowed(SID,CID,(*it_b)->getType()));
 }
 
 //clearing fines

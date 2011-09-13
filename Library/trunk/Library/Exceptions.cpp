@@ -28,30 +28,11 @@ const char* existing_student_exception::what() const throw()
 	return _msg;
 }
 
- book_is_borrowed::book_is_borrowed(long CID, int type)
+ book_is_borrowed::book_is_borrowed(long CID, char* type)
  {
 	 _CID=CID;
-	 _type=type;
 	stringstream ss;
-	switch(_type)
-	{
-	case 3://ReservedBook
-		{
-		ss<<"reserved book with catalogid "<<_CID<<" is already borrowed! ";
-		break;
-		}
-	case 7://Journal
-		{
-		ss<<"journal with catalogid "<<_CID<<" is already borrowed! ";
-		break;
-		}
-	case 14://Book
-		{
-		ss<<"book with catalogid "<<_CID<<" is already borrowed! ";
-		break;
-		}
-	}
-	
+	ss<<type<<" with catalogid "<<_CID<<" is already borrowed! ";
 	_msg = new char [ss.str().length() + 1];
 	strcpy(_msg, ss.str().c_str());
  }
@@ -76,12 +57,12 @@ const char* already_borrowed::what() const throw()
 	return _msg;
 }
 
-TitleIsNotBorrowed::TitleIsNotBorrowed(long SID,long CID)
+TitleIsNotBorrowed::TitleIsNotBorrowed(long SID,long CID, char* type)
 {
 _CID=CID;
 _SID=SID;
 stringstream ss;
-ss<<"student "<<SID<<" cannot return a book that is not borrowed (catalogid "<<CID<<")";
+ss<<"student "<<SID<<" cannot return a book (type: "<<type<<") that is not borrowed (catalogid "<<CID<<")";
 _msg = new char [ss.str().length() + 1];
 strcpy(_msg, ss.str().c_str());
 
@@ -92,12 +73,12 @@ const char* TitleIsNotBorrowed::what() const throw()
 	return _msg;
 }
 
-StudentDidNotBorrowThisTitle::StudentDidNotBorrowThisTitle(long SID,long CID)
+StudentDidNotBorrowThisTitle::StudentDidNotBorrowThisTitle(long SID,long CID,char* type)
 {
 	_CID=CID;
 	_SID=SID;
 	stringstream ss;
-	ss<<"student "<<SID<<" cannot return a book that is not borrowed (catalogid "<<CID<<")";
+	ss<<"student "<<SID<<" cannot return a book (type: "<<type<<") that is not borrowed (catalogid "<<CID<<")";
 	_msg = new char [ss.str().length() + 1];
 	strcpy(_msg, ss.str().c_str());
 }
