@@ -69,10 +69,10 @@ void Library::returnTitle(const long& SID, const long& CID)
 		throw (Empty());
 	it_s=find(_SL.begin(),_SL.end(),SID);
 	if(it_s==_SL.end())
-		throw(no_Student_With_This_ID(SID));// need to implemet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		throw(no_Student_With_This_ID(SID));//in case no student with current ID was found
 	it_b= find_if(_BL.begin(), _BL.end(), FindElement(CID));
 	if(it_b==_BL.end())
-		throw(no_Title_With_This_Catalog_ID(CID));// need to implemet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		throw(no_Title_With_This_Catalog_ID(CID));// in case no title with catalog ID was found
 	if((*it_b)->getIsBorrowed())//if the title is borrowed
 	{
 		it_e=it_s->findBorrow(CID);//calling find borrow to find the to be deleted borrow
@@ -92,6 +92,8 @@ void Library::clearFines(const long& SID)
 {
 	list<Student>::iterator  it;
 	it=find(_SL.begin(),_SL.end(),SID);//find the student by its ID
+	if(it==_SL.end())
+		throw(no_Student_With_This_ID(SID));//in case no student with current ID was found
 	it->NullifySumFines(_Date);
 }
 
