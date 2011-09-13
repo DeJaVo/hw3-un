@@ -13,6 +13,7 @@ class Book:public BaseBook
 			string _AuthorName;
 	public:
 			Book(long id=0,string BN="",string AN="");//c'tor+defualt c'tor
+			virtual char* getType() const {return _type;}
 };
 
 

@@ -61,12 +61,12 @@ const char* existing_student_exception::what() const throw()
 	return _msg;
 }
 
- already_borrowed::already_borrowed(long SID, long CID)
+ already_borrowed::already_borrowed(long SID, long CID,char* type)
 {
 _CID=CID;
 _SID=SID;
 stringstream ss;
-ss<<"student "<<_SID<<" already borrowed catalogid "<< _CID;
+ss<<"student "<<_SID<<" already borrowed "<<type<<" with catalogid "<<_CID;
 _msg = new char [ss.str().length() + 1];
 strcpy(_msg, ss.str().c_str());
 }
@@ -111,12 +111,26 @@ no_Student_With_This_ID::no_Student_With_This_ID(long SID)
 {
 	_SID=SID;
 	stringstream ss;
-	ss<<"student with ID number:"<<_SID<<"does not exit in the library."<<endl;
+	ss<<"Student with ID number: "<<_SID<<" does not exit in the library.";
 	_msg=new char[ss.str().length()+1];
 	strcpy(_msg,ss.str().c_str());
 }
 
 const char* no_Student_With_This_ID::what() const throw()
+{
+	return _msg;
+}
+
+no_Title_With_This_Catalog_ID::no_Title_With_This_Catalog_ID(long CID)
+{
+	_CID=CID;
+	stringstream ss;
+	ss<<"Title with catalog ID: "<<_CID<<" does not exist in the library.";
+	_msg=new char[ss.str().length()+1];
+	strcpy(_msg,ss.str().c_str());
+}
+
+const char* no_Title_With_This_Catalog_ID::what() const throw()
 {
 	return _msg;
 }
