@@ -49,7 +49,7 @@ protected:
 	long _SID;
 	char* _msg;
 public:
-	already_borrowed(long SID,long CID);
+	already_borrowed(long SID,long CID,char* type);
 	virtual const char* what() const throw();
 	virtual ~already_borrowed(){ delete[] _msg;}
 };
@@ -87,8 +87,6 @@ public:
 	virtual const char* what() const throw(){return "The list is empty";}
 };
 
-#endif
-
 //trying to find a student who doesn't exist in the student list (according to the ID)
 class no_Student_With_This_ID:public exception{
 	protected:
@@ -106,6 +104,8 @@ class no_Title_With_This_Catalog_ID:public exception{
 		long _CID;
 		char* _msg;
 	public:
-		no_Title_With_This_Catalog_ID(long CID)
+		no_Title_With_This_Catalog_ID(long CID);
 		virtual const char* what() const throw();
 };
+
+#endif

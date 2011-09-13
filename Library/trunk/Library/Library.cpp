@@ -40,13 +40,13 @@ void Library::borrowTitle(const long& SID,const long& CID)
 		throw (Empty());
 	it_s=find(_SL.begin(),_SL.end(),SID);
 	if(it_s==_SL.end())
-		throw(no_Student_With_This_ID(SID));// need to implemet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		throw(no_Student_With_This_ID(SID));// in case no student was found with current SID
 	it_b= find_if(_BL.begin(), _BL.end(),FindElement(CID));
 	if(it_b==_BL.end())
-		throw(no_Title_With_This_Catalog_ID(CID));// need to implemet!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		throw(no_Title_With_This_Catalog_ID(CID));// in case no book with current CID was found
 	it_e=find_if(it_s->beginIterator(),it_s->endIterator(),FindElement(CID));//search if student already borrowed CID
 	if(it_e!=it_s->endIterator())//in case student already borrowed this title
-		throw(already_borrowed(it_s->getId(),(*it_e)->getCID()));
+		throw(already_borrowed(it_s->getId(),(*it_e)->getCID(),(*it_b)->getType()));
     if((*it_b)->getIsBorrowed()) //in case book is borrowed by someone 
 		throw(book_is_borrowed((*it_b)->getCatalogId(),(*it_b)->get_borrow_days()));
 	Borrow* btemp=new Borrow(_Date);// create a new borrow

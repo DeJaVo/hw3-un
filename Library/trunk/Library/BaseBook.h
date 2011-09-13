@@ -13,6 +13,7 @@ class BaseBook
 		int _borrow_days;
 		time_t _borrow_date;
 		bool _isborrow;
+		char* _type;
 	public:
 		BaseBook(long CID=0);//c'tor
 		long getCatalogId() const {return _CatalogId;} 
@@ -21,6 +22,7 @@ class BaseBook
 		bool getIsBorrowed()const {return _isborrow;}
 		void setIsBorrowed(){_isborrow=!(_isborrow);}
 		void setBorrowDate(time_t date){_borrow_date=date;}
+		virtual char* getType() const {return _type;}
 
 };
 

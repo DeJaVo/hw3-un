@@ -10,6 +10,7 @@ class Journal:public BaseBook
 			int _journal_num;
 	public:
 		Journal(long CID=0,string JN="",int journal_num=0);//c'tor
+		virtual char* getType() const {return _type;}
 };
 
 #endif

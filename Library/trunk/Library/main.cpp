@@ -89,7 +89,7 @@ int main(){
 	cout<<"library cannot add student with the same id twice (id=2222)! **********"<<endl;
 
 
-	library.borrowTitle(1234, b1.getCatalogId());
+	library.borrowTitle(s1.getId(), b1.getCatalogId());
 	library.borrowTitle(s1.getId(), r1.getCatalogId());
 	library.borrowTitle(s1.getId(), j1.getCatalogId());
 
