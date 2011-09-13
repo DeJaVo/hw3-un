@@ -37,7 +37,7 @@ protected:
 	char* _msg;
 	int _type;
 public:
-	book_is_borrowed(long CID,int type);
+	book_is_borrowed(long CID,char* type);
 	virtual const char* what() const throw();
 	virtual ~book_is_borrowed(){ delete[] _msg;}
 };
@@ -62,7 +62,7 @@ protected:
 	long _SID;
 	char* _msg;
 public:
-	TitleIsNotBorrowed(long SID,long CID);
+	TitleIsNotBorrowed(long SID,long CID,char* type);
 	virtual const char* what() const throw();
 	virtual ~TitleIsNotBorrowed(){ delete[] _msg;}
 };
@@ -75,7 +75,7 @@ protected:
 	long _SID;
 	char* _msg;
 public:
-	StudentDidNotBorrowThisTitle(long SID,long CID);
+	StudentDidNotBorrowThisTitle(long SID,long CID,char* type);
 	virtual const char* what() const throw();
 	virtual ~StudentDidNotBorrowThisTitle(){ delete[] _msg;}
 };
