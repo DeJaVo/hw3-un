@@ -1,3 +1,12 @@
+/***************************************************************************
+ *
+ * HW 3
+ *
+ * Author:  Dvir Segal
+ *
+ * Author:  Sheira Ben Haim
+ **************************************************************************/
+
 #include "BaseBook.h"
 
 BaseBook::BaseBook(const long CID):_CatalogId(CID)//c'tor

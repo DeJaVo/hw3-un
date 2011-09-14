@@ -1,3 +1,12 @@
+/***************************************************************************
+ *
+ * HW 3
+ *
+ * Author:  Dvir Segal
+ *
+ * Author:  Sheira Ben Haim
+ **************************************************************************/
+
 #include "Student.h"
 
 Student::Student(long SID, string Name)//c'tor+defualt c'tor
