@@ -101,7 +101,7 @@ no_Student_With_This_ID::no_Student_With_This_ID(long SID)
 {
 	_SID=SID;
 	stringstream ss;
-	ss<<"Student with ID number: "<<_SID<<" does not exit in the library.";
+	ss<<"Student with ID number: "<<_SID<<" does not exist in the library.";
 	_msg=new char[ss.str().length()+1];
 	strcpy(_msg,ss.str().c_str());
 }
